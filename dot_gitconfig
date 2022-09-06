@@ -1,0 +1,5 @@
+[user]
+	name = Tom S
+	email = git@tombl.dev
+[init]
+	defaultBranch = main

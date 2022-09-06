@@ -1,0 +1,39 @@
+* {
+  border-radius: 0;
+  border: none;
+  font-family: monospace;
+  font-size: 14px;
+  text-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
+}
+
+window {
+  background: transparent;
+}
+
+window box {
+  padding-left: 4px;
+  padding-right: 8px;
+}
+
+#custom-line {
+  margin: 0 4px;
+  color:rgba(255, 255, 255, 0.25);
+  text-shadow: none;
+}
+
+#workspaces button {
+  border-top: 2px solid transparent;
+  background: transparent;
+  padding: 0 8px;
+}
+
+#workspaces button.visible {
+  border-top: 2px solid #006f8c;
+}
+#workspaces button:hover:not(.visible) {
+  border-top: 2px solid #005b74;
+}
+
+#clock {
+  font-weight: 500;
+}

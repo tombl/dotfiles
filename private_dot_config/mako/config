@@ -1,0 +1,9 @@
+font=Inter 12
+border-radius=4
+background-color=#005b74
+text-color=#ffffff
+border-color=#006f8c
+border-size=1
+padding=8
+layer=overlay
+default-timeout=5000
