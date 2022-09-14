@@ -8,11 +8,19 @@
     "clock#time",
     "custom/line",
     "clock#date",
+{{- if eq .chezmoi.hostname "dirt" }}
+    "custom/line",
+    "custom/timetable",
+{{- end }}
   ],
   "modules-right": [
-    "pulseaudio",
-    "custom/line",
     "network",
+    "custom/line",
+    "pulseaudio",
+{{- if eq .chezmoi.hostname "dirt" }}
+    "custom/line",
+    "battery",
+{{- end }}
   ],
   "sway/workspaces": {
     "disable-scroll": true,
@@ -31,6 +39,11 @@
   "clock#date": {
     "format": "{:%d %B}"
   },
+  "battery": {
+    "format": "{icon} {capacity}%",
+    "format-charging": " {capacity}%",
+    "format-icons": ["", "", "", "", "", "", "", "", "", "", ""]
+  },
   "pulseaudio": {
     "format": "{icon} {volume}%",
     "format-muted": "ﱝ",
@@ -41,5 +54,10 @@
     "format-wifi": "直 {essid}",
     "format-disconnected": "睊",
     "on-click": "nm-connection-editor"
+  },
+  "custom/timetable": {
+    "exec": "~/.config/waybar/timetable.sh",
+    "return-type": "json",
+    "interval": 600
   }
 }

@@ -1,6 +1,7 @@
 set $mod Mod4
 floating_modifier $mod
 
+exec_always ~/.config/sway/init.sh
 exec gnome-keyring-daemon --start --components=secrets
 exec lxpolkit
 exec mako
@@ -81,12 +82,29 @@ input type:touchpad {
 	scroll_factor 0.5
 }
 
-input type:touch {
-	map_to_output eDP-1
-}
-
 default_border none
 gaps inner 2
 #smart_gaps on
 
 output "*" bg wallpaper.jpg fill
+
+{{- if eq .chezmoi.hostname "dirt" }}
+exec squeekboard
+exec ~/.config/sway/rotation.sh
+bindsym XF86PowerOff exec pkill -3 lavalauncher || lavalauncher
+# bindcode 198 exec single
+# bindcode 197 exec double
+# bindcode 196 exec long
+
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%- | sed -En 's/.*\(([0-9]+)%\).*/\1/p' > $WOBSOCK
+bindsym XF86MonBrightnessUp exec brightnessctl set +5% | sed -En 's/.*\(([0-9]+)%\).*/\1/p' > $WOBSOCK
+
+input type:keyboard {
+	xkb_options caps:swapescape
+}
+input type:touch {
+	map_to_output eDP-1
+}
+
+output eDP-1 scale 2
+{{- end }}

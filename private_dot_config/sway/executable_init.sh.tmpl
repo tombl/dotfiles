@@ -1,0 +1,7 @@
+#!/bin/sh
+
+{{- if eq .chezmoi.hostname "dirt" }}
+if ! [ -e /tmp/rotation-lock.svg ]; then
+    ~/.config/lavalauncher/rotation-lock.sh init
+fi
+{{- end }}

@@ -1,5 +1,5 @@
 require "impatient"
+require "tombl.options"
 require "tombl.bindings"
 require "tombl.commands"
-require "tombl.options"
 require "tombl.plugins"

@@ -60,6 +60,11 @@ require"packer".startup (use) ->
 	}
 
 	use {
+		"glepnir/lspsaga.nvim"
+		config: -> require"lspsaga".init_lsp_saga!
+	}
+
+	use {
 		"tombl/moon.nvim"
 		ft: "moon"
 		rocks: "moonscript"
@@ -88,10 +93,14 @@ require"packer".startup (use) ->
 			"hrsh7th/cmp-cmdline"
 			"hrsh7th/cmp-nvim-lsp"
 			"hrsh7th/cmp-path"
+			"dcampos/nvim-snippy"
+			"dcampos/cmp-snippy"
 		}
 		config: ->
 			import setup, mapping, config from require "cmp"
 			setup {
+				snippet: expand: (args) ->
+					require"snippy".expand_snippet args.body
 				mapping: mapping.preset.insert
 					"<C-b>": mapping.scroll_docs -4
 					"<C-f>": mapping.scroll_docs 4
@@ -101,6 +110,7 @@ require"packer".startup (use) ->
 				sources: config.sources {
 					{ name: "nvim_lsp" }
 					{ name: "copilot" }
+					{ name: "snippy" }
 				}
 			}
 			setup.cmdline "/", {

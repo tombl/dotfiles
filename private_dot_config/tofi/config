@@ -10,12 +10,12 @@ prompt-text = " pick: "
 outline-width = 0
 border-width = 0
 num-results = 20
-min-input-width = 120
 result-spacing = 15
 padding-top = 5
 padding-bottom = 0
 padding-left = 8
 padding-right = 8
+min-input-width = 120
 
 background-color = #01526A
 selection-color = #ffffff

@@ -1,6 +1,14 @@
 map = vim.keymap.set
+mapc = (mode, key, cmd) ->
+	map mode, key, ":"..cmd.."<CR>", silent: true
 
+map "n", ";", ":"
 map "t", "<C-o>", "<C-\\><C-n>"
-map "n", "<C-n>", ":bnext<CR>", silent: true
-map "n", "<C-p>", ":bprev<CR>", silent: true
-map "n", "<Esc>", ":nohl<CR>", silent: true
+mapc "n", "<C-n>", "bnext"
+mapc "n", "<C-p>", "bprev"
+mapc "n", "<Esc>", "nohl"
+
+mapc "n", "<leader>t", "NvimTreeToggle"
+mapc "n", "<leader>o", "Telescope find_files"
+mapc "n", "<leader>r", "Lspsaga rename"
+mapc "n", "<leader>a", "Lspsaga code_action"

@@ -1,6 +1,7 @@
 with vim.g
 	.do_filetype_lua = 1
 	.did_load_filetypes = 0
+	.mapleader = " "
 
 with vim.opt
 	.clipboard\append "unnamedplus"
