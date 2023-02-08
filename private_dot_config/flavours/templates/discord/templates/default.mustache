@@ -1,0 +1,39 @@
+/* vi: ft=css
+*/
+
+@import url('https://refact0r.github.io/midnight-discord/midnight.css');
+
+:root {
+	/* main accent color */
+	--accent-color: #{{base0D-hex}};
+	--accent-color-2: #{{base0C-hex}};
+	--accent-color-3: #{{base0E-hex}};
+	/* converted rgb of accent-color-2 (used for mention message backgrounds) */
+	--accent-color-rgb: {{base0C-rgb-r}}, {{base0C-rgb-b}}, {{base0C-rgb-b}};
+	/* link color */
+	--link-color: #{{base0D-hex}};
+	/* background of messages that mention you */
+	--mentioned-background: rgba({{base0C-rgb-r}}, {{base0C-rgb-b}}, {{base0C-rgb-b}}, 0.1);
+	/* background of messages that mention you on hover */
+	--mentioned-hover-background: rgba({{base0C-rgb-r}}, {{base0C-rgb-b}}, {{base0C-rgb-b}}, 0.08);
+	/* bright text for colored buttons */
+	--bright-text: #{{base07-hex}};
+	/* header text for headers and certain text */
+	--header-text: #{{base06-hex}};
+	/* main text color (messages, titles, unread text/indicators) */
+	--primary-text: #{{base05-hex}};
+	/* secondary text color (channels, descriptions, buttons) */
+	--secondary-text: #{{base04-hex}};
+	/* muted text color (input box placeholders, muted channels, message times) */
+	--muted-text: #{{base03-hex}};
+	--muted-text-hover: #{{base04-hex}};
+	--muted-text-active: #{{base05-hex}};
+	/* converted rgb of muted-text (used for message hover backgrounds) */
+	--muted-text-rgb: {{base03-rgb-r}}, {{base03-rgb-b}}, {{base03-rgb-b}};
+	/* main chat/channel list/member list background */
+	--primary-background: #{{base00-hex}};
+	/* background of pretty much everything else */
+	--secondary-background: #{{base01-hex}};
+	/* scrollbar thumb color */
+	--scrollbar-color: #{{base02-hex}};
+}

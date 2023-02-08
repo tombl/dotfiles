@@ -1,6 +1,8 @@
 * {
   all: initial;
-  font-family: monospace;
+  /* font-family: monospace; */
+  font-family: "Inter Display";
+  font-weight: 600;
   font-size: 14px;
   text-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
 }
@@ -21,10 +23,18 @@ window box {
   padding: 0 8px;
 }
 
+/* wlr */
+/* #workspaces button.active {
+  border-top: 2px solid #006f8c;
+}
+#workspaces button:hover:not(.active) {
+  border-top: 2px solid #005b74;
+} */
+
+/* sway */
 #workspaces button.visible {
   border-top: 2px solid #006f8c;
 }
 #workspaces button:hover:not(.visible) {
   border-top: 2px solid #005b74;
 }
-

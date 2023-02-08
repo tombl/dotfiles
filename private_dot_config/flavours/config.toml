@@ -1,0 +1,69 @@
+[[items]]
+template = "alacritty"
+file = "~/.config/alacritty.yml"
+subtemplate = "default-256"
+
+[[items]]
+template = "foot"
+file = "~/.config/foot/foot.ini"
+
+[[items]]
+template = "swaylock"
+file = "~/.config/swaylock/config"
+rewrite = true
+
+# [[items]]
+# template = "sway"
+# file = "~/.config/sway/config"
+# subtemplate = "colors"
+# light = false
+# hook = "swaymsg reload"
+
+[[items]]
+template = "neovim"
+hook = "~/.config/nvim/reloadcolor.sh"
+file = "~/.config/nvim/lua/tombl/color.lua"
+rewrite = true
+
+[[items]]
+template = "shell"
+file = "~/.local/share/flavours/shell.sh"
+hook = "sh ~/.local/share/flavours/shell.sh > ~/.local/share/flavours/shell.txt && pkill -USR2 fish"
+rewrite = true
+
+[[items]]
+template = "xfce4-terminal"
+file = "~/.config/xfce4/terminal/terminalrc"
+
+[[items]]
+template = "hyprland"
+file = "~/.config/hypr/colors.conf"
+hook = "hyprctl reload"
+rewrite = true
+
+[[items]]
+template = "wofi"
+file = "~/.config/wofi/style.css"
+rewrite = true
+
+[[items]]
+template = "firefox"
+file = "~/.config/firefox-dyntheme/theme.json"
+hook = "pkill firefox_dynthem -USR1"
+rewrite = true
+
+[[items]]
+template = "discord"
+file = "~/.local/share/flavours/discord.css"
+hook = "~/.config/flavours/discord.sh"
+rewrite = true
+
+[[items]]
+template = "libadwaita"
+hook = "~/.config/flavours/reloadgtk.sh"
+file = "~/.config/gtk-3.0/gtk.css"
+rewrite = true
+[[items]]
+template = "libadwaita"
+file = "~/.config/gtk-4.0/gtk.css"
+rewrite = true

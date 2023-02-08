@@ -1,0 +1,19 @@
+# COLOUR (base16)
+color=f5f0e7
+bs-hl-color=c42775
+caps-lock-bs-hl-color=c42775
+caps-lock-key-hl-color=637200
+key-hl-color=637200
+inside-clear-color=73777f
+inside-ver-color=73777f
+inside-wrong-color=d02023
+ring-wrong-color=d02023
+ring-color=9d6f00
+ring-caps-lock-color=9d6f00
+ring-clear-color=007a72
+text-clear-color=007a72
+ring-ver-color=0073b5
+text-color=43474e
+text-caps-lock-color=43474e
+text-ver-color=43474e
+text-wrong-color=43474e

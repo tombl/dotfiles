@@ -2,7 +2,8 @@ set $mod Mod4
 floating_modifier $mod
 
 exec_always ~/.config/sway/init.sh
-exec gnome-keyring-daemon --start --components=secrets
+exec gnome-keyring-daemon --start --components=secrets,ssh
+exec dbus-update-activation-environment --all
 exec lxpolkit
 exec mako
 exec ~/.local/bin/i3-workspace
@@ -12,23 +13,31 @@ exec wl-paste -t text --watch ~/.config/sway/oncopy.sh
 
 font Inter 11
 
-bindsym $mod+Return exec alacritty
+exec foot --server
+bindsym $mod+Return exec footclient
 bindsym $mod+q kill
 bindsym $mod+Shift+r reload
 bindsym $mod+f fullscreen toggle
 bindsym $mod+control+l exec ~/.config/sway/lock.sh
 bindsym $mod+Shift+Space floating toggle
-bindsym $mod+Space exec pkill -3 tofi || j4-dmenu-desktop --dmenu="tofi --prompt-text=' run: '"
+bindsym $mod+Space exec pkill -3 tofi || j4-dmenu-desktop --dmenu="tofi --prompt-text=' run: '" --wrapper="sway exec"
 bindsym $mod+v exec ~/.config/sway/clipmenu.sh pick
 bindsym $mod+Shift+v exec ~/.config/sway/clipmenu.sh clear
 bindsym $mod+c exec qalculate-gtk
 bindsym $mod+e exec nemo
 
+bindsym $mod+Shift+grave move scratchpad
+bindsym $mod+grave scratchpad show
+
 set $WOBSOCK $XDG_RUNTIME_DIR/wob.sock
-exec rm -f $WOBSOCK && mkfifo $WOBSOCK && tail -f $WOBSOCK | wob -o 0 -p 0 -b 0 -H 10 -a top -W 1834 --bar-color '#9bbac2ff' --background-color '#01526Aff'
+exec rm -f $WOBSOCK && mkfifo $WOBSOCK && tail -f $WOBSOCK | wob
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5% && pactl get-sink-volume @DEFAULT_SINK@ | head -n 1| awk '{print substr($5, 1, length($5)-1)}' > $WOBSOCK
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5% && pactl get-sink-volume @DEFAULT_SINK@ | head -n 1 | awk '{print substr($5, 1, length($5)-1)}' > $WOBSOCK
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
 
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -99,12 +108,29 @@ bindsym XF86PowerOff exec pkill -3 lavalauncher || lavalauncher
 bindsym XF86MonBrightnessDown exec brightnessctl set 5%- | sed -En 's/.*\(([0-9]+)%\).*/\1/p' > $WOBSOCK
 bindsym XF86MonBrightnessUp exec brightnessctl set +5% | sed -En 's/.*\(([0-9]+)%\).*/\1/p' > $WOBSOCK
 
-input type:keyboard {
-	xkb_options caps:swapescape
-}
 input type:touch {
 	map_to_output eDP-1
 }
 
 output eDP-1 scale 2
 {{- end }}
+
+{{- if eq .chezmoi.hostname "grass" }}
+output HDMI-A-2 pos 1920 0
+output HDMI-A-4 pos 0 0
+
+# workspace number "1:•" output HDMI-A-2
+# workspace number "2:•" output HDMI-A-2
+# workspace number "3:•" output HDMI-A-2
+# workspace number "4:•" output HDMI-A-2
+# workspace number "5:•" output HDMI-A-2
+# workspace number "6:•" output HDMI-A-4
+# workspace number "7:•" output HDMI-A-4
+# workspace number "8:•" output HDMI-A-4
+# workspace number "9:•" output HDMI-A-4
+# workspace number "10:•" output HDMI-A-4
+{{- end }}
+
+input type:keyboard {
+	xkb_options caps:swapescape
+}

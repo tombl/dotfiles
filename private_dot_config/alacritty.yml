@@ -1,36 +1,60 @@
 window:
-  padding:
-    x: 16
-    y: 16
+  opacity: 0.95
   dynamic_padding: true
+  padding:
+    x: 8
+    y: 2
 tabspaces: 2
 cursor:
   style: beam
+  custom_cursor_colors: true
+font:
+  size: 11
+  offset:
+    x: 0
+    y: 1
+
+# Start flavours
+# Base16 Ayu Mirage 256 - alacritty color config
+# Khue Nguyen <Z5483Y@gmail.com>
 colors:
+  # Default colors
   primary:
-    background: "0x282c34"
-    foreground: "0xabb2bf"
+    background: '0x171B24'
+    foreground: '0xCCCAC2'
 
+  # Colors the cursor will use if `custom_cursor_colors` is true
   cursor:
-    text: "0x282c34"
-    cursor: "0xabb2bf"
+    text: '0x171B24'
+    cursor: '0xCCCAC2'
 
+  # Normal colors
   normal:
-    black: "0x282c34"
-    red: "0xbe5046"
-    green: "0x98c379"
-    yellow: "0xe5c07b"
-    blue: "0x61afef"
-    magenta: "0xc678dd"
-    cyan: "0x56b6c2"
-    white: "0xabb2bf"
+    black:   '0x171B24'
+    red:     '0xF28779'
+    green:   '0xD5FF80'
+    yellow:  '0xFFD173'
+    blue:    '0x5CCFE6'
+    magenta: '0xD4BFFF'
+    cyan:    '0x95E6CB'
+    white:   '0xCCCAC2'
 
+  # Bright colors
   bright:
-    black: "0x696f79"
-    red: "0xbe5046"
-    green: "0x98c379"
-    yellow: "0xe5c07b"
-    blue: "0x61afef"
-    magenta: "0xc678dd"
-    cyan: "0x56b6c2"
-    white: "0xffffff"
+    black:   '0x707A8C'
+    red:     '0xF28779'
+    green:   '0xD5FF80'
+    yellow:  '0xFFD173'
+    blue:    '0x5CCFE6'
+    magenta: '0xD4BFFF'
+    cyan:    '0x95E6CB'
+    white:   '0xF3F4F5'
+
+  indexed_colors:
+    - { index: 16, color: '0xFFAD66' }
+    - { index: 17, color: '0xF29E74' }
+    - { index: 18, color: '0x1F2430' }
+    - { index: 19, color: '0x242936' }
+    - { index: 20, color: '0x8A9199' }
+    - { index: 21, color: '0xD9D7CE' }
+# End flavours
